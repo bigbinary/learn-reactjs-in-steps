@@ -1,4 +1,4 @@
-### Episode 1 - Setting up ReactJS app with webpack
+### Episode 2 - Sumbit & Input field
 
 #### Setting up the application
 
@@ -11,5 +11,5 @@ Visit http://localhost:8080 in browser.
 
 #### Notes
 
-* [webpack docs](http://webpack.github.io/docs/)
+* [Exploring ES6](http://exploringjs.com/es6/index.html)
 * [Source code](...)
