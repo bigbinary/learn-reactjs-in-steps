@@ -4,8 +4,10 @@ export default class App extends React.Component {
   render () {
     return  <div>
               <p> TODO </p>
-              <input />
-              <button> Submit </button>
+              <form>
+                <input />
+                <button> Submit </button>
+              </form>
             </div>;
   }
 }
