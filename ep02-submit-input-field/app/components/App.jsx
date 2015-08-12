@@ -3,7 +3,8 @@ import React from 'react';
 export default class App extends React.Component {
   render () {
     return  <div>
-              TODO
+              <p> TODO </p>
+              <button> Submit </button>
             </div>;
   }
 }
