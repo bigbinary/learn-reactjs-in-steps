@@ -1,5 +1,3 @@
-### Episode 1 - Setting up ReactJS app with webpack
-
 #### Setting up the application
 
 ```

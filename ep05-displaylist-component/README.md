@@ -1,5 +1,3 @@
-### Episode 5 - DisplayList Component
-
 #### Setting up the application
 
 ```

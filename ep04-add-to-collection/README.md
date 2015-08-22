@@ -1,5 +1,3 @@
-### Episode 4 - Adding to collection
-
 #### Setting up the application
 
 ```

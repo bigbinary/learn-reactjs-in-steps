@@ -1,5 +1,3 @@
-### Episode 2 - Sumbit & Input field
-
 #### Setting up the application
 
 ```

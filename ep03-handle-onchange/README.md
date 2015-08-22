@@ -1,5 +1,3 @@
-### Episode 3 - Handle onChange
-
 #### Setting up the application
 
 ```
