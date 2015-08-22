@@ -1,4 +1,4 @@
-### Episode 4 - Adding to collection
+### Episode 5 - DisplayList Component
 
 #### Setting up the application
 
