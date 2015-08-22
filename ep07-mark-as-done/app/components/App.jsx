@@ -5,7 +5,7 @@ export default class App extends React.Component {
 
   constructor () {
     super();
-    this.state = { text: '', items: [] };
+    this.state = { text: '', items: ['eggs', 'banana', 'bread'] };
   }
 
   handleDelete (itemToBeDeleted) {
