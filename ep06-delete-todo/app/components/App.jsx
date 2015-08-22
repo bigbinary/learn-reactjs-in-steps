@@ -10,6 +10,11 @@ export default class App extends React.Component {
 
   handleDelete (itemToBeDeleted) {
     console.log(itemToBeDeleted);
+    var newItems = this.state.items.filter( (_item) => {
+      return _item != itemToBeDeleted
+    } )
+
+    this.setState({ items: newItems });
   }
 
   handleSubmit (event) {
@@ -38,7 +43,7 @@ export default class App extends React.Component {
               </form>
 
               <DisplayList
-                handleDelete={this.handleDelete}
+                handleDelete={this.handleDelete.bind(this)}
                 items={this.state.items}  />
             </div>;
   }

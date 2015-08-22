@@ -7,7 +7,7 @@ export default class DisplayList extends React.Component {
               { this.props.items.map((item, i) => {
                 return <li key={item}>
                           { item }
-                          <a href='#' onClick={ this.props.handleDelete.bind(this, item) }>
+                          <a href='#' onClick={ this.props.handleDelete.bind(null, item) }>
                             [x]
                           </a>
                        </li>;
