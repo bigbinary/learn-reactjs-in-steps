@@ -15,7 +15,7 @@ export default class DisplayItem extends React.Component {
   render () {
     var item = this.props.item;
 
-    return <li key={item}>
+    return <li>
               <input
                 checked={this.state.done}
                 onChange={this.handleOnChange.bind(this)}
