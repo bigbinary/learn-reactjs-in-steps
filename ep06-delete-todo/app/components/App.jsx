@@ -8,6 +8,10 @@ export default class App extends React.Component {
     this.state = { text: '', items: [] };
   }
 
+  handleDelete (itemToBeDeleted) {
+    console.log(itemToBeDeleted);
+  }
+
   handleSubmit (event) {
     event.preventDefault();
     console.log("form was submitted");
@@ -33,7 +37,9 @@ export default class App extends React.Component {
                 <button> Submit </button>
               </form>
 
-              <DisplayList items={this.state.items} />
+              <DisplayList
+                handleDelete={this.handleDelete}
+                items={this.state.items}  />
             </div>;
   }
 }
