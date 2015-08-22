@@ -1,4 +1,5 @@
 import React from 'react';
+import DisplayItem from './DisplayItem';
 
 export default class DisplayList extends React.Component {
 
@@ -28,6 +29,8 @@ export default class DisplayList extends React.Component {
                           </a>
                        </li>;
               }) }
+
+              <DisplayItem />
             </ul>;
   }
 
