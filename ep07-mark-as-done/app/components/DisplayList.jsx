@@ -7,7 +7,9 @@ export default class DisplayList extends React.Component {
     this.state = { done: false };
   }
 
-  handleOnChange () {
+  handleOnChange (event) {
+    var _done = !this.state.done;
+    this.setState({ done: _done });
   }
 
   render () {
