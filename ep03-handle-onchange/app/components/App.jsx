@@ -12,6 +12,7 @@ export default class App extends React.Component {
     console.log("form was submitted");
     var text = this.state.text;
     console.log("submitted form has value ", text);
+    this.setState({ text: '' });
   }
 
   handleChange (event) {
