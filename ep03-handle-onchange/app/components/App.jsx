@@ -10,6 +10,8 @@ export default class App extends React.Component {
   handleSubmit (event) {
     event.preventDefault();
     console.log("form was submitted");
+    var text = this.state.text;
+    console.log("submitted form has value ", text);
   }
 
   handleChange (event) {
@@ -21,7 +23,7 @@ export default class App extends React.Component {
   render () {
     return  <div>
               <p> TODO </p>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit.bind(this)}>
                 <input onChange={this.handleChange.bind(this)} value={this.state.text} />
                 <button> Submit </button>
               </form>
