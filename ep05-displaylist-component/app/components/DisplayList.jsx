@@ -1,10 +1,14 @@
 import React from 'react';
 
 export default class DisplayList extends React.Component {
+
   render () {
-    return  <div>
-              { this.props.items.toString() }
-            </div>;
+    return  <ul>
+              { this.props.items.map((item, i) => {
+                return <li> { item } </li>;
+              }) }
+            </ul>;
   }
+
 }
 
