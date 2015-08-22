@@ -1,4 +1,4 @@
-### Episode 3 - Handle onChange
+### Episode 4 - Adding to collection
 
 #### Setting up the application
 
