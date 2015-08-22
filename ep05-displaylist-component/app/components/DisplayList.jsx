@@ -1,8 +1,10 @@
 import React from 'react';
 
 export default class DisplayList extends React.Component {
-  render() {
-    return <div> This is DisplayList</div>;
+  render () {
+    return  <div>
+              { this.props.items.toString() }
+            </div>;
   }
 }
 

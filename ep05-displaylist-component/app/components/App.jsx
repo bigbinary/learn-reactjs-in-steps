@@ -33,10 +33,6 @@ export default class App extends React.Component {
                 <button> Submit </button>
               </form>
 
-              <p>
-                { this.state.items.toString() }
-              </p>
-
               <DisplayList items={this.state.items} />
             </div>;
   }
