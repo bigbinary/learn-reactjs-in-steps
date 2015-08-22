@@ -4,15 +4,18 @@ export default class App extends React.Component {
 
   constructor () {
     super();
-    this.state = { text: '' };
+    this.state = { text: '', items: [] };
   }
 
   handleSubmit (event) {
     event.preventDefault();
     console.log("form was submitted");
+
     var text = this.state.text;
+    var newItems = this.state.items.concat(text);
+
     console.log("submitted form has value ", text);
-    this.setState({ text: '' });
+    this.setState({ text: '', items: newItems });
   }
 
   handleChange (event) {
@@ -28,6 +31,10 @@ export default class App extends React.Component {
                 <input onChange={this.handleChange.bind(this)} value={this.state.text} />
                 <button> Submit </button>
               </form>
+
+              <p>
+                { this.state.items.toString() }
+              </p>
             </div>;
   }
 }
