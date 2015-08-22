@@ -1,4 +1,4 @@
-### Episode 2 - Sumbit & Input field
+### Episode 3 - Handle onChange
 
 #### Setting up the application
 
@@ -11,5 +11,4 @@ Visit http://localhost:8080 in browser.
 
 #### Notes
 
-* [Exploring ES6](http://exploringjs.com/es6/index.html)
 * [Source code](...)
