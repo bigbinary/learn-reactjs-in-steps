@@ -1,4 +1,5 @@
 import React from 'react';
+import DisplayList from './DisplayList';
 
 export default class App extends React.Component {
 
@@ -35,6 +36,8 @@ export default class App extends React.Component {
               <p>
                 { this.state.items.toString() }
               </p>
+
+              <DisplayList items={this.state.items} />
             </div>;
   }
 }
