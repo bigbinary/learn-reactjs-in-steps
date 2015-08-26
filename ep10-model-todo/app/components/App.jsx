@@ -8,10 +8,9 @@ export default class App extends React.Component {
     this.state = { title: '', items: ['eggs', 'banana', 'bread'] };
   }
 
-  handleDelete (itemToBeDeleted) {
-    console.log(itemToBeDeleted);
-    var newItems = this.state.items.filter( (_item) => {
-      return _item != itemToBeDeleted
+  handleDelete (titleToBeDeleted) {
+    var newItems = this.state.items.filter( (_title) => {
+      return _title != titleToBeDeleted
     } )
 
     this.setState({ items: newItems });
@@ -19,7 +18,6 @@ export default class App extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault();
-    console.log("form was submitted");
 
     var title = this.state.title;
     var newItems = this.state.items.concat(title);
@@ -44,7 +42,7 @@ export default class App extends React.Component {
                 Number of total tasks: { this.state.items.length }
               </p>
               <p>
-                Number of total tasks done: { this.state.items.filter((item) => { item.done }).length }
+                Number of total tasks done: { this.state.items.filter((title) => { title.done }).length }
               </p>
 
               <DisplayList
