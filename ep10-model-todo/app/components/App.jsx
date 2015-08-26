@@ -5,7 +5,7 @@ export default class App extends React.Component {
 
   constructor () {
     super();
-    this.state = { text: '', items: ['eggs', 'banana', 'bread'] };
+    this.state = { title: '', items: ['eggs', 'banana', 'bread'] };
   }
 
   handleDelete (itemToBeDeleted) {
@@ -21,24 +21,22 @@ export default class App extends React.Component {
     event.preventDefault();
     console.log("form was submitted");
 
-    var text = this.state.text;
-    var newItems = this.state.items.concat(text);
+    var title = this.state.title;
+    var newItems = this.state.items.concat(title);
 
-    console.log("submitted form has value ", text);
-    this.setState({ text: '', items: newItems });
+    this.setState({ title: '', items: newItems });
   }
 
   handleChange (event) {
-    var text = event.target.value;
-    console.log(text);
-    this.setState({ text: text });
+    var title = event.target.value;
+    this.setState({ title: title });
   }
 
   render () {
     return  <div>
               <p> TODO </p>
               <form onSubmit={this.handleSubmit.bind(this)}>
-                <input onChange={this.handleChange.bind(this)} value={this.state.text} />
+                <input onChange={this.handleChange.bind(this)} value={this.state.title} />
                 <button> Submit </button>
               </form>
 
