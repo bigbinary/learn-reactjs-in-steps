@@ -42,6 +42,10 @@ export default class App extends React.Component {
                 <button> Submit </button>
               </form>
 
+              <p>
+                Number of total tasks: { this.state.items.length }
+              </p>
+
               <DisplayList
                 handleDelete={this.handleDelete.bind(this)}
                 items={this.state.items}  />
