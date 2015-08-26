@@ -45,6 +45,9 @@ export default class App extends React.Component {
               <p>
                 Number of total tasks: { this.state.items.length }
               </p>
+              <p>
+                Number of total tasks done: { this.state.items.filter((item) => { item.done }).length }
+              </p>
 
               <DisplayList
                 handleDelete={this.handleDelete.bind(this)}
