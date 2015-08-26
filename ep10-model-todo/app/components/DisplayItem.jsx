@@ -13,7 +13,7 @@ export default class DisplayItem extends React.Component {
   }
 
   render () {
-    var item = this.props.item;
+    var title = this.props.title;
 
     return <li>
               <input
@@ -22,8 +22,8 @@ export default class DisplayItem extends React.Component {
                 type="checkbox"
                 style={{ fontSize: 'x-large' }} />
 
-              { item }
-              <a href='#' onClick={ this.props.handleDelete.bind(null, item) }>
+              { title }
+              <a href='#' onClick={ this.props.handleDelete.bind(null, title) }>
                 [x]
               </a>
            </li>;

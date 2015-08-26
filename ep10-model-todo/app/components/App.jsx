@@ -5,24 +5,24 @@ export default class App extends React.Component {
 
   constructor () {
     super();
-    this.state = { title: '', items: ['eggs', 'banana', 'bread'] };
+    this.state = { title: '', todos: ['eggs', 'banana', 'bread'] };
   }
 
   handleDelete (titleToBeDeleted) {
-    var newItems = this.state.items.filter( (_title) => {
+    var newTodos = this.state.todos.filter( (_title) => {
       return _title != titleToBeDeleted
     } )
 
-    this.setState({ items: newItems });
+    this.setState({ todos: newTodos});
   }
 
   handleSubmit (event) {
     event.preventDefault();
 
     var title = this.state.title;
-    var newItems = this.state.items.concat(title);
+    var newTodos = this.state.todos.concat(title);
 
-    this.setState({ title: '', items: newItems });
+    this.setState({ title: '', todos: newTodos });
   }
 
   handleChange (event) {
@@ -39,15 +39,15 @@ export default class App extends React.Component {
               </form>
 
               <p>
-                Number of total tasks: { this.state.items.length }
+                Number of total tasks: { this.state.todos.length }
               </p>
               <p>
-                Number of total tasks done: { this.state.items.filter((title) => { title.done }).length }
+                Number of total tasks done: { this.state.todos.filter((title) => { title.done }).length }
               </p>
 
               <DisplayList
                 handleDelete={this.handleDelete.bind(this)}
-                items={this.state.items}  />
+                todos={this.state.todos}  />
             </div>;
   }
 }
