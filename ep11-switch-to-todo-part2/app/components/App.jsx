@@ -5,7 +5,11 @@ export default class App extends React.Component {
 
   constructor () {
     super();
-    this.state = { title: '', todos: ['eggs', 'banana', 'bread'] };
+    this.state = { title: '', todos:  [
+                                        { title: 'eggs', done: false },
+                                        { title: 'banana', done: false },
+                                        { title: 'bread', done: false }
+                                      ] };
   }
 
   handleDelete (titleToBeDeleted) {
