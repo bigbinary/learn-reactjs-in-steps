@@ -20,7 +20,7 @@ export default class App extends React.Component {
     event.preventDefault();
 
     var title = this.state.title;
-    var newTodos = this.state.todos.concat(title);
+    var newTodos = this.state.todos.concat({ title: title, done: false });
 
     this.setState({ title: '', todos: newTodos });
   }
