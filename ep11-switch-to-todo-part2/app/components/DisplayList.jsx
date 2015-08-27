@@ -5,11 +5,11 @@ export default class DisplayList extends React.Component {
 
   render () {
     return <ul>
-            { this.props.todos.map((title, i) => {
+            { this.props.todos.map((todo, i) => {
               return <DisplayItem
-                        key={title}
-                        title={title}
-                        handleDelete={this.props.handleDelete.bind(null, title)} />;
+                        key={todo.title}
+                        title={todo.title}
+                        handleDelete={this.props.handleDelete.bind(null, todo.title)} />;
             }) }
            </ul>
   }
