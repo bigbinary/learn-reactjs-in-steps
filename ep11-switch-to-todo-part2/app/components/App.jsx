@@ -9,8 +9,8 @@ export default class App extends React.Component {
   }
 
   handleDelete (titleToBeDeleted) {
-    var newTodos = this.state.todos.filter( (_title) => {
-      return _title != titleToBeDeleted
+    var newTodos = this.state.todos.filter( (todo) => {
+      return todo.title != titleToBeDeleted
     } )
 
     this.setState({ todos: newTodos});
@@ -42,7 +42,7 @@ export default class App extends React.Component {
                 Number of total tasks: { this.state.todos.length }
               </p>
               <p>
-                Number of total tasks done: { this.state.todos.filter((title) => { title.done }).length }
+                Number of total tasks done: { this.state.todos.filter((todo) => { todo.done }).length }
               </p>
 
               <DisplayList
