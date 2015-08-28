@@ -8,7 +8,7 @@ export default class DisplayList extends React.Component {
             { this.props.todos.map((todo, i) => {
               return <DisplayItem
                         key={todo.title}
-                        title={todo.title}
+                        todo={todo}
                         handleDelete={this.props.handleDelete.bind(null, todo.title)} />;
             }) }
            </ul>
