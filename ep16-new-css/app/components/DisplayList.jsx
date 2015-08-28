@@ -4,7 +4,7 @@ import DisplayItem from './DisplayItem';
 export default class DisplayList extends React.Component {
 
   render () {
-    return <ul>
+    return <ul id="todo-list">
             { this.props.todos.map((todo, i) => {
               return  <section id="main" key={todo.title}>
                         <DisplayItem
