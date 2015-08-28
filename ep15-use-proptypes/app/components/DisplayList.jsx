@@ -16,3 +16,9 @@ export default class DisplayList extends React.Component {
   }
 
 }
+
+DisplayList.propTypes = {
+  todos: React.PropTypes.array.isRequired,
+  handleDone: React.PropTypes.func.isRequired,
+  handleDelete: React.PropTypes.func.isRequired
+}

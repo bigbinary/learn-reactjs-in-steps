@@ -20,3 +20,9 @@ export default class DisplayItem extends React.Component {
   }
 
 }
+
+DisplayItem.propTypes = {
+  todo: React.PropTypes.object.isRequired,
+  handleDone: React.PropTypes.func.isRequired,
+  handleDelete: React.PropTypes.func.isRequired
+}
