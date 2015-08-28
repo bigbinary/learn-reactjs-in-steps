@@ -62,7 +62,7 @@ export default class App extends React.Component {
               </p>
 
               <DisplayList
-                handleDone={this.handleDone}
+                handleDone={this.handleDone.bind(this)}
                 handleDelete={this.handleDelete.bind(this)}
                 todos={this.state.todos}  />
             </div>;

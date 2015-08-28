@@ -2,11 +2,6 @@ import React from 'react';
 
 export default class DisplayItem extends React.Component {
 
-  constructor () {
-    super();
-    this.state = { done: false };
-  }
-
   render () {
     var todo = this.props.todo;
     var title = todo.title;
