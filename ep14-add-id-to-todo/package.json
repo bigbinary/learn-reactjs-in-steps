@@ -23,6 +23,7 @@
     "webpack-merge": "^0.1.2"
   },
   "dependencies": {
+    "random-key": "^0.3.2",
     "react": "^0.13.3"
   }
 }
