@@ -58,7 +58,7 @@ export default class App extends React.Component {
                 Number of total tasks: { this.state.todos.length }
               </p>
               <p>
-                Number of total tasks done: { this.state.todos.filter((todo) => { todo.done }).length }
+                Number of total tasks done: { this.state.todos.filter((todo) => { return todo.done }).length }
               </p>
 
               <DisplayList
