@@ -18,7 +18,7 @@ export default class DisplayItem extends React.Component {
 
     return <li>
               <input
-                checked={this.state.done}
+                checked={todo.done}
                 onChange={this.handleDone.bind(this)}
                 type="checkbox"
                 style={{ fontSize: 'x-large' }} />
