@@ -12,6 +12,10 @@ export default class App extends React.Component {
                                       ] };
   }
 
+  handleDone (titleToBeMarkedAsDone) {
+    console.log(titleToBeMarkedAsDone + " wants to be marked as done");
+  }
+
   handleDelete (titleToBeDeleted) {
     var newTodos = this.state.todos.filter( (todo) => {
       return todo.title != titleToBeDeleted
@@ -50,6 +54,7 @@ export default class App extends React.Component {
               </p>
 
               <DisplayList
+                handleDone={this.handleDone}
                 handleDelete={this.handleDelete.bind(this)}
                 todos={this.state.todos}  />
             </div>;

@@ -7,11 +7,6 @@ export default class DisplayItem extends React.Component {
     this.state = { done: false };
   }
 
-  handleDone (event) {
-    var _done = !this.state.done;
-    this.setState({ done: _done });
-  }
-
   render () {
     var todo = this.props.todo;
     var title = todo.title;
@@ -19,7 +14,7 @@ export default class DisplayItem extends React.Component {
     return <li>
               <input
                 checked={todo.done}
-                onChange={this.handleDone.bind(this)}
+                onChange={this.props.handleDone.bind(null, title)}
                 type="checkbox"
                 style={{ fontSize: 'x-large' }} />
 
