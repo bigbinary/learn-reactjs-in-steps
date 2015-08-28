@@ -7,6 +7,13 @@ export default class DisplayItem extends React.Component {
     this.state = { editing: false }
   }
 
+  handleEditing (event) {
+    this.setState({ editing: true });
+  }
+
+  handleEditingDone (event) {
+  }
+
   render () {
     var todo = this.props.todo;
 
@@ -20,7 +27,7 @@ export default class DisplayItem extends React.Component {
     }
 
     return <li className={ todo.done ? 'done' : '' }>
-              <div style={viewStyle}>
+              <div style={viewStyle} onDoubleClick={this.handleEditing.bind(this)}>
                 <input
                   checked={todo.done}
                   onChange={this.props.handleDone.bind(null, todo.id)}
@@ -39,6 +46,7 @@ export default class DisplayItem extends React.Component {
               </div>
 
               <input  type="text"
+                      onKeyDown={this.handleEditingDone.bind(this)}
                       style={editStyle}
                       value={todo.title} />
            </li>
