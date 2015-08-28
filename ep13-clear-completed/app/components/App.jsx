@@ -55,10 +55,12 @@ export default class App extends React.Component {
               </form>
 
               <p>
-                Number of total tasks: { this.state.todos.length }
+                All: ({ this.state.todos.length }) |
+                Completed: ({ this.state.todos.filter((todo) => { return todo.done }).length }) |
+                Pending: ({ this.state.todos.filter((todo) => { return !todo.done }).length }) |
+                <a href='#'>Clear Completed</a>
               </p>
               <p>
-                Number of total tasks done: { this.state.todos.filter((todo) => { return todo.done }).length }
               </p>
 
               <DisplayList
