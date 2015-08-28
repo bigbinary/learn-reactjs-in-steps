@@ -5,7 +5,7 @@ export default class DisplayItem extends React.Component {
   render () {
     var todo = this.props.todo;
 
-    return <li>
+    return <li className={ item.done } 'done' : '' }>
               <input
                 checked={todo.done}
                 onChange={this.props.handleDone.bind(null, todo.id)}
