@@ -8,13 +8,18 @@ export default class DisplayItem extends React.Component {
   }
 
   handleEditing (event) {
-    this.setState({ editing: true });
+    this.setState({ editing: true, changedText: this.props.todo.title });
   }
 
   handleEditingDone (event) {
     if (event.keyCode === 13 ) { // submit
       this.setState({ editing: false });
     }
+  }
+
+  handleEditingChange (event) {
+    var _changedText = event.target.value;
+    this.setState({ changedText: _changedText });
   }
 
   render () {
@@ -50,8 +55,9 @@ export default class DisplayItem extends React.Component {
 
               <input  type="text"
                       onKeyDown={this.handleEditingDone.bind(this)}
+                      onChange={this.handleEditingChange.bind(this)}
                       style={editStyle}
-                      value={todo.title} />
+                      value={this.state.changedText} />
            </li>
   }
 
