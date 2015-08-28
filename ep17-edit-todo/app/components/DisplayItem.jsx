@@ -12,6 +12,9 @@ export default class DisplayItem extends React.Component {
   }
 
   handleEditingDone (event) {
+    if (event.keyCode === 13 ) { // submit
+      this.setState({ editing: false });
+    }
   }
 
   render () {
