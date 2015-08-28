@@ -13,7 +13,9 @@ export default class DisplayItem extends React.Component {
                 style={{ fontSize: 'x-large' }} />
 
               { todo.title }
-              <a href='#' onClick={ this.props.handleDelete.bind(null, todo.id) }>
+              <a  href='#'
+                  className="destroy"
+                  onClick={ this.props.handleDelete.bind(null, todo.id) }>
                 [x]
               </a>
            </li>;
