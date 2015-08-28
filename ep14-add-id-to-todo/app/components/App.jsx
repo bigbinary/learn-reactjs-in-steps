@@ -1,22 +1,23 @@
 import React from 'react';
 import DisplayList from './DisplayList';
 
+var rand = require('random-key');
+
 export default class App extends React.Component {
 
   constructor () {
     super();
     this.state = { title: '', todos:  [
-                                        { title: 'eggs', done: false },
-                                        { title: 'banana', done: false },
-                                        { title: 'bread', done: false }
+                                        { title: 'eggs', done: false, id: 1 },
+                                        { title: 'banana', done: false, id: 2 },
+                                        { title: 'bread', done: false, id: 3 }
                                       ] };
   }
 
-  handleDone (titleToBeMarkedAsDone) {
-    console.log(titleToBeMarkedAsDone + " wants to be marked as done");
+  handleDone (idToBeMarkedAsDone) {
     var _todos = this.state.todos;
     var todo = _todos.filter((todo) => {
-      return todo.title === titleToBeMarkedAsDone;
+      return todo.id === idToBeMarkedAsDone;
     })[0];
 
     todo.done = !todo.done;
@@ -24,9 +25,9 @@ export default class App extends React.Component {
     this.setState({ todos: _todos });
   }
 
-  handleDelete (titleToBeDeleted) {
+  handleDelete (idToBeDeleted) {
     var newTodos = this.state.todos.filter( (todo) => {
-      return todo.title != titleToBeDeleted
+      return todo.id != idToBeDeleted
     } )
 
     this.setState({ todos: newTodos});
@@ -36,7 +37,9 @@ export default class App extends React.Component {
     event.preventDefault();
 
     var title = this.state.title;
-    var newTodos = this.state.todos.concat({ title: title, done: false });
+    var newTodos = this.state.todos.concat({  title: title,
+                                              id: rand.generate(),
+                                              done: false });
 
     this.setState({ title: '', todos: newTodos });
   }

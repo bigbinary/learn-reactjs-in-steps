@@ -10,7 +10,7 @@ export default class DisplayList extends React.Component {
                         key={todo.title}
                         todo={todo}
                         handleDone={this.props.handleDone}
-                        handleDelete={this.props.handleDelete.bind(null, todo.title)} />;
+                        handleDelete={this.props.handleDelete} />;
             }) }
            </ul>
   }
