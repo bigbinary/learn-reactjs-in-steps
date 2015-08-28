@@ -12,7 +12,10 @@ export default class DisplayItem extends React.Component {
                 type="checkbox"
                 style={{ fontSize: 'x-large' }} />
 
-              { todo.title }
+              <label>
+                { todo.title }
+              </label>
+
               <a  href='#'
                   className="destroy"
                   onClick={ this.props.handleDelete.bind(null, todo.id) }>
