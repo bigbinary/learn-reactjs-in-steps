@@ -61,7 +61,6 @@ export default class App extends React.Component {
                 <input  type="text"
                         onChange={this.handleChange.bind(this)}
                         value={this.state.title} />
-                <button> Submit </button>
               </form>
 
               <DisplayList
