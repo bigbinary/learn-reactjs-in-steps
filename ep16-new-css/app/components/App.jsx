@@ -62,14 +62,12 @@ export default class App extends React.Component {
                 <button> Submit </button>
               </form>
 
-              <p>
+              <footer>
                 All: ({ this.state.todos.length }) |
                 Completed: ({ this.state.todos.filter((todo) => { return todo.done }).length }) |
                 Pending: ({ this.state.todos.filter((todo) => { return !todo.done }).length }) |
                 <a href='#' onClick={this.handleClearCompleted.bind(this)}>Clear Completed</a>
-              </p>
-              <p>
-              </p>
+              </footer>
 
               <DisplayList
                 handleDone={this.handleDone.bind(this)}
