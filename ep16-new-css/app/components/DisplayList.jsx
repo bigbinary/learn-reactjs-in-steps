@@ -10,7 +10,7 @@ export default class DisplayList extends React.Component {
                         <DisplayItem
                           todo={todo}
                           handleDone={this.props.handleDone}
-                          handleDelete={this.props.handleDelete} />;
+                          handleDelete={this.props.handleDelete} />
                       </section>
             }) }
            </ul>
