@@ -7,6 +7,10 @@ export default class DisplayItem extends React.Component {
     this.state = { editing: false }
   }
 
+  componentDidMount () {
+    this.setState({ changedText: this.props.todo.title });
+  }
+
   handleEditing (event) {
     this.setState({ editing: true, changedText: this.props.todo.title });
   }
