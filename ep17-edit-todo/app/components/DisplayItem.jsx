@@ -5,23 +5,25 @@ export default class DisplayItem extends React.Component {
   render () {
     var todo = this.props.todo;
 
-    return <li className={ todo.done ? 'done' : '' }>
-              <input
-                checked={todo.done}
-                onChange={this.props.handleDone.bind(null, todo.id)}
-                type="checkbox"
-                style={{ fontSize: 'x-large' }} />
+    return <div>
+              <li className={ todo.done ? 'done' : '' }>
+                <input
+                  checked={todo.done}
+                  onChange={this.props.handleDone.bind(null, todo.id)}
+                  type="checkbox"
+                  style={{ fontSize: 'x-large' }} />
 
-              <label>
-                { todo.title }
-              </label>
+                <label>
+                  { todo.title }
+                </label>
 
-              <a  href='#'
-                  className="destroy"
-                  onClick={ this.props.handleDelete.bind(null, todo.id) }>
-                [x]
-              </a>
-           </li>;
+                <a  href='#'
+                    className="destroy"
+                    onClick={ this.props.handleDelete.bind(null, todo.id) }>
+                  [x]
+                </a>
+             </li>
+           </div>
   }
 
 }
