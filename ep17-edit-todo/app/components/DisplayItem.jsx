@@ -10,8 +10,17 @@ export default class DisplayItem extends React.Component {
   render () {
     var todo = this.props.todo;
 
-    return <div>
-              <li className={ todo.done ? 'done' : '' }>
+    var viewStyle = {};
+    var editStyle = {};
+
+    if (this.state.editing) {
+      viewStyle.display = 'none';
+    } else {
+      editStyle.display = 'none';
+    }
+
+    return <li className={ todo.done ? 'done' : '' }>
+              <div style={viewStyle}>
                 <input
                   checked={todo.done}
                   onChange={this.props.handleDone.bind(null, todo.id)}
@@ -27,14 +36,12 @@ export default class DisplayItem extends React.Component {
                     onClick={ this.props.handleDelete.bind(null, todo.id) }>
                   [x]
                 </a>
+              </div>
 
-                <input  type="text"
-                        value={todo.title} />
-             </li>
-
-           </div>
-
-
+              <input  type="text"
+                      style={editStyle}
+                      value={todo.title} />
+           </li>
   }
 
 }
