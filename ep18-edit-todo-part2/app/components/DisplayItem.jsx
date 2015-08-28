@@ -43,7 +43,7 @@ export default class DisplayItem extends React.Component {
                   style={{ fontSize: 'x-large' }} />
 
                 <label>
-                  { todo.title }
+                  { this.state.changedText }
                 </label>
 
                 <a  href='#'
