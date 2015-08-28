@@ -14,6 +14,14 @@ export default class App extends React.Component {
 
   handleDone (titleToBeMarkedAsDone) {
     console.log(titleToBeMarkedAsDone + " wants to be marked as done");
+    var _todos = this.state.todos;
+    var todo = _todos.filter((todo) => {
+      return todo.title === titleToBeMarkedAsDone;
+    })[0];
+
+    todo.done = !todo.done;
+
+    this.setState({ todos: _todos });
   }
 
   handleDelete (titleToBeDeleted) {
