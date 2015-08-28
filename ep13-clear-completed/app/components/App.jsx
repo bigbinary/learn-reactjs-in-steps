@@ -46,6 +46,11 @@ export default class App extends React.Component {
     this.setState({ title: title });
   }
 
+  handleClearCompleted (event) {
+    var newTodos = this.state.todos.filter((todo) => { return !todo.done});
+    this.setState({ todos: newTodos });
+  }
+
   render () {
     return  <div>
               <p> TODO </p>
@@ -58,7 +63,7 @@ export default class App extends React.Component {
                 All: ({ this.state.todos.length }) |
                 Completed: ({ this.state.todos.filter((todo) => { return todo.done }).length }) |
                 Pending: ({ this.state.todos.filter((todo) => { return !todo.done }).length }) |
-                <a href='#'>Clear Completed</a>
+                <a href='#' onClick={this.handleClearCompleted.bind(this)}>Clear Completed</a>
               </p>
               <p>
               </p>
