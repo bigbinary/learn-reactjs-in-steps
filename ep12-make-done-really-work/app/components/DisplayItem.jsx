@@ -13,7 +13,8 @@ export default class DisplayItem extends React.Component {
   }
 
   render () {
-    var title = this.props.title;
+    var todo = this.props.todo;
+    var title = todo.title;
 
     return <li>
               <input
