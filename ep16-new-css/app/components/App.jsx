@@ -58,7 +58,9 @@ export default class App extends React.Component {
     return  <div>
               <h1> TODO </h1>
               <form onSubmit={this.handleSubmit.bind(this)}>
-                <input onChange={this.handleChange.bind(this)} value={this.state.title} />
+                <input  type="text"
+                        onChange={this.handleChange.bind(this)}
+                        value={this.state.title} />
                 <button> Submit </button>
               </form>
 
