@@ -22,8 +22,14 @@ export default class DisplayItem extends React.Component {
                     onClick={ this.props.handleDelete.bind(null, todo.id) }>
                   [x]
                 </a>
+
+                <input  type="text"
+                        value={todo.title} />
              </li>
+
            </div>
+
+
   }
 
 }
