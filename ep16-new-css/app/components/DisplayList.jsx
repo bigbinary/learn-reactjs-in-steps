@@ -6,7 +6,7 @@ export default class DisplayList extends React.Component {
   render () {
     return <ul id="todo-list">
             { this.props.todos.map((todo, i) => {
-              return  <section id="main" key={todo.title}>
+              return  <section id="main" key={todo.id}>
                         <DisplayItem
                           todo={todo}
                           handleDone={this.props.handleDone}
