@@ -2,16 +2,17 @@ import React from 'react';
 import DisplayList from './DisplayList';
 
 var rand = require('random-key');
+var api = require("../utils/api");
 
 export default class App extends React.Component {
 
   constructor () {
     super();
-    this.state = { title: '', todos:  [
-                                        { title: 'eggs', done: false, id: 1 },
-                                        { title: 'banana', done: false, id: 2 },
-                                        { title: 'bread', done: false, id: 3 }
-                                      ] };
+    this.state = { title: '', todos:  [] };
+    var processData = function(data) {
+      this.setState({todos: data.todos});
+    };
+    api.getTasks(processData.bind(this));
   }
 
   handleDone (idToBeMarkedAsDone) {
