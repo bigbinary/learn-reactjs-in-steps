@@ -7,12 +7,22 @@ var api = {
     this.makeAjaxCall(url, 'GET', processData)
   },
 
-  makeAjaxCall (url, type, processDataCallback) {
+  markTaskDone (processData, todo) {
+    var url = Constants.BASE_URL + 'todos/' + todo.id;
+    var params = {
+      id: todo.id,
+      done: todo.done
+    };
+    this.makeAjaxCall(url, 'PUT', processData, params)
+  },
+
+  makeAjaxCall (url, type, processDataCallback, params) {
     $.ajax({
       type: type,
       url: url,
       data: {
-        api_key: Constants.API_KEY
+        api_key: Constants.API_KEY,
+        todo: params
       },
       dataType: 'json',
       success: function(data) {
