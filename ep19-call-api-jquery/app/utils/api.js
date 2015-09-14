@@ -9,9 +9,7 @@ var api = {
 
   markTaskDone (processData, todo) {
     var url = Constants.BASE_URL + 'todos/' + todo.id;
-    var params = {
-      done: todo.done
-    };
+    var params = { done: todo.done };
     this.makeAjaxCall(url, 'PUT', processData, params)
   },
 

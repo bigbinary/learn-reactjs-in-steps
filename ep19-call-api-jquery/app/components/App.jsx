@@ -28,11 +28,7 @@ export default class App extends React.Component {
     };
 
     var markTaskDoneCallback = function(data){
-      if(data.success){
-        api.getTasks(processData.bind(this));
-      } else {
-        console.log("Failed to mark task as done/undone")
-      }
+      data.success ? api.getTasks(processData.bind(this)) : console.log("Failed to mark task as done/undone");
     };
 
     api.markTaskDone(markTaskDoneCallback.bind(this), todo);
@@ -43,15 +39,11 @@ export default class App extends React.Component {
       this.setState({todos: data.todos});
     };
 
-    var markTaskDeleteCallback = function(data){
-      if(data.success){
-        api.getTasks(processData.bind(this));
-      } else {
-        console.log("Failed to delete task")
-      }
+    var deleteTaskCallback = function(data){
+      data.success ? api.getTasks(processData.bind(this)) : console.log("Failed to delete task");
     };
 
-    api.deleteTask(markTaskDeleteCallback.bind(this), idToBeDeleted);
+    api.deleteTask(deleteTaskCallback.bind(this), idToBeDeleted);
   }
 
   handleSubmit (event) {
@@ -60,15 +52,11 @@ export default class App extends React.Component {
     var newTodo = { title: this.state.title, done: false };
 
     var processData = function(data) {
-      this.setState({todos: data.todos});
+      this.setState({title: '', todos: data.todos});
     };
 
     var addTaskCallback = function(data){
-      if(data.success){
-        api.getTasks(processData.bind(this));
-      } else {
-        console.log("Failed to delete task")
-      }
+      data.success ? api.getTasks(processData.bind(this)) : console.log("Failed to add task");
     };
 
     api.addTask(addTaskCallback.bind(this), newTodo);
