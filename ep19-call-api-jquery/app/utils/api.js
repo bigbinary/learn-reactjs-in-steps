@@ -20,6 +20,11 @@ var api = {
     this.makeAjaxCall(url, 'DELETE', processData)
   },
 
+  addTask (processData, todo) {
+    var url = Constants.BASE_URL + 'todos';
+    this.makeAjaxCall(url, 'POST', processData, todo)
+  },
+
   makeAjaxCall (url, type, processDataCallback, params) {
     $.ajax({
       type: type,

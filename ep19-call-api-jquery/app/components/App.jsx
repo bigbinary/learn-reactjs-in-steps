@@ -57,12 +57,21 @@ export default class App extends React.Component {
   handleSubmit (event) {
     event.preventDefault();
 
-    var title = this.state.title;
-    var newTodos = this.state.todos.concat({  title: title,
-                                              id: rand.generate(),
-                                              done: false });
+    var newTodo = { title: this.state.title, done: false };
 
-    this.setState({ title: '', todos: newTodos });
+    var processData = function(data) {
+      this.setState({todos: data.todos});
+    };
+
+    var addTaskCallback = function(data){
+      if(data.success){
+        api.getTasks(processData.bind(this));
+      } else {
+        console.log("Failed to delete task")
+      }
+    };
+
+    api.addTask(addTaskCallback.bind(this), newTodo);
   }
 
   handleChange (event) {
