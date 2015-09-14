@@ -39,11 +39,19 @@ export default class App extends React.Component {
   }
 
   handleDelete (idToBeDeleted) {
-    var newTodos = this.state.todos.filter( (todo) => {
-      return todo.id != idToBeDeleted
-    } )
+    var processData = function(data) {
+      this.setState({todos: data.todos});
+    };
 
-    this.setState({ todos: newTodos});
+    var markTaskDeleteCallback = function(data){
+      if(data.success){
+        api.getTasks(processData.bind(this));
+      } else {
+        console.log("Failed to delete task")
+      }
+    };
+
+    api.deleteTask(markTaskDeleteCallback.bind(this), idToBeDeleted);
   }
 
   handleSubmit (event) {

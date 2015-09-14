@@ -10,10 +10,14 @@ var api = {
   markTaskDone (processData, todo) {
     var url = Constants.BASE_URL + 'todos/' + todo.id;
     var params = {
-      id: todo.id,
       done: todo.done
     };
     this.makeAjaxCall(url, 'PUT', processData, params)
+  },
+
+  deleteTask (processData, idToBeDeleted) {
+    var url = Constants.BASE_URL + 'todos/' + idToBeDeleted;
+    this.makeAjaxCall(url, 'DELETE', processData)
   },
 
   makeAjaxCall (url, type, processDataCallback, params) {
