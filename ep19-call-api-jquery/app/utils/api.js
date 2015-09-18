@@ -6,6 +6,11 @@ var api = {
     var url = Constants.BASE_URL + 'todos';
     this.makeAjaxCall(url, 'GET', {}, processDataCallback)
   },
+
+  addTask (todo, processDataCallback) {
+    var url = Constants.BASE_URL + 'todos';
+    this.makeAjaxCall(url, 'POST', todo, processDataCallback)
+  },
   
   makeAjaxCall (url, type, params, processDataCallback) {
     $.ajax({
