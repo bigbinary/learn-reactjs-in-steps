@@ -2,6 +2,11 @@ var Constants = require("./constants");
 var $ = require('jquery');
 
 var api = {
+  getTasks (processDataCallback) {
+    var url = Constants.BASE_URL + 'todos';
+    this.makeAjaxCall(url, 'GET', {}, processDataCallback)
+  },
+  
   makeAjaxCall (url, type, params, processDataCallback) {
     $.ajax({
       type: type,
