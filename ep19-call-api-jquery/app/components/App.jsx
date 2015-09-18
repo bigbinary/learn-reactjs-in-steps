@@ -24,7 +24,15 @@ export default class App extends React.Component {
 
     todo.done = !todo.done;
 
-    this.setState({ todos: _todos });
+    var processDataCallback = function(data) {
+      this.setState({todos: data.todos});
+    };
+
+    var markTaskDoneCallback = function(data){
+      data.success ? api.getTasks(processDataCallback.bind(this)) : console.log("Failed to mark task as done/undone");
+    };
+
+    api.markTaskDone(todo, markTaskDoneCallback.bind(this));
   }
 
   handleDelete (idToBeDeleted) {
