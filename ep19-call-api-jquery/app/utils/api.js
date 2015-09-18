@@ -17,6 +17,11 @@ var api = {
     var params = { done: todo.done };
     this.makeAjaxCall(url, 'PUT', params, processDataCallback)
   },
+
+  deleteTask (idToBeDeleted, processDataCallback) {
+    var url = Constants.BASE_URL + 'todos/' + idToBeDeleted;
+    this.makeAjaxCall(url, 'DELETE', {}, processDataCallback)
+  },
   
   makeAjaxCall (url, type, params, processDataCallback) {
     $.ajax({
