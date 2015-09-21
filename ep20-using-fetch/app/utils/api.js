@@ -37,8 +37,9 @@ var api = {
   },
 
   deleteTask (idToBeDeleted, processDataCallback) {
-    var url = Constants.BASE_URL + 'todos/' + idToBeDeleted;
-    this.makeAjaxCall(url, 'DELETE', {}, processDataCallback)
+    var url = this.generateUrlWithApiKey('todos/' + idToBeDeleted);
+    return fetch(url, { method: 'DELETE' })
+      .then((res) => res.json());
   },
 
   makeAjaxCall (url, type, params, processDataCallback) {
