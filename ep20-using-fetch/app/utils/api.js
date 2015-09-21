@@ -25,10 +25,15 @@ var api = {
              .then((res) => res.json());
   },
 
-  markTaskDone (todo, processDataCallback) {
-    var url = Constants.BASE_URL + 'todos/' + todo.id;
-    var params = { done: todo.done };
-    this.makeAjaxCall(url, 'PUT', params, processDataCallback)
+  markTaskDone (todo) {
+    var url = this.generateUrlWithApiKey('todos/' + todo.id);
+    var options = {
+      method: 'PUT',
+      headers: HEADER,
+      body: JSON.stringify({done: todo.done})
+    };
+    return fetch(url, options)
+             .then((res) => res.json());
   },
 
   deleteTask (idToBeDeleted, processDataCallback) {
