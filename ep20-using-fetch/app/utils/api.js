@@ -1,6 +1,8 @@
 var Constants = require("./constants");
 var $ = require('jquery');
 
+var HEADER = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+
 var api = {
   generateUrlWithApiKey(endpoint) {
     return Constants.BASE_URL + endpoint + '?api_key=' + Constants.API_KEY;
@@ -12,9 +14,15 @@ var api = {
              .then((res) => res.json());
   },
 
-  addTask (todo, processDataCallback) {
-    var url = Constants.BASE_URL + 'todos';
-    this.makeAjaxCall(url, 'POST', todo, processDataCallback)
+  addTask (todo) {
+    var url = this.generateUrlWithApiKey('todos');
+    var options = {
+      method: 'POST',
+      headers: HEADER,
+      body: JSON.stringify({todo: todo})
+    };
+    return fetch(url, options)
+             .then((res) => res.json());
   },
 
   markTaskDone (todo, processDataCallback) {

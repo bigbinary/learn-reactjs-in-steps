@@ -51,15 +51,10 @@ export default class App extends React.Component {
 
     var newTodo = { title: this.state.title, done: false };
 
-    var addTaskCallback = function(data){
-      if (data.success) {
-        api.getTasks()
-          .then( (responseData) => this.setState({title: '', todos: responseData.todos} ))
-          .catch( (error) => console.log('Failed to add task: ', error) );
-      }
-    };
-
-    api.addTask(newTodo, addTaskCallback.bind(this));
+    api.addTask(newTodo)
+      .then( () => { return api.getTasks() })
+      .then( (responseData) => this.setState({title: '', todos: responseData.todos} ))
+      .catch( (error) => console.log('Failed to add task: ', error) );
   }
 
   handleChange (event) {
