@@ -9,11 +9,10 @@ export default class App extends React.Component {
   constructor () {
     super();
     this.state = { title: '', todos:  [] };
-    var processDataCallback = function(data) {
-      this.setState({todos: data.todos});
-    };
 
-    api.getTasks(processDataCallback.bind(this));
+    api.getTasks()
+      .then( (responseData) => this.setState({todos: responseData.todos} ))
+      .catch( (error) => console.log('Failed to get tasks: ', error) );
   }
 
   handleDone (idToBeMarkedAsDone) {
@@ -24,24 +23,24 @@ export default class App extends React.Component {
 
     todo.done = !todo.done;
 
-    var processDataCallback = function(data) {
-      this.setState({todos: data.todos});
-    };
-
     var markTaskDoneCallback = function(data){
-      data.success ? api.getTasks(processDataCallback.bind(this)) : console.log("Failed to mark task as done/undone");
+      if (data.success) {
+        api.getTasks()
+          .then( (responseData) => this.setState({todos: responseData.todos} ))
+          .catch( (error) => console.log('Failed to mark task as done/undone: ', error) );
+      }
     };
 
     api.markTaskDone(todo, markTaskDoneCallback.bind(this));
   }
 
   handleDelete (idToBeDeleted) {
-    var processDataCallback = function(data) {
-      this.setState({todos: data.todos});
-    };
-
     var deleteTaskCallback = function(data){
-      data.success ? api.getTasks(processDataCallback.bind(this)) : console.log("Failed to delete task");
+      if (data.success) {
+        api.getTasks()
+          .then( (responseData) => this.setState({todos: responseData.todos} ))
+          .catch( (error) => console.log('Failed to delete task: ', error) );
+      }
     };
 
     api.deleteTask(idToBeDeleted, deleteTaskCallback.bind(this));
@@ -52,12 +51,12 @@ export default class App extends React.Component {
 
     var newTodo = { title: this.state.title, done: false };
 
-    var processDataCallback = function(data) {
-      this.setState({title: '', todos: data.todos});
-    };
-
     var addTaskCallback = function(data){
-      data.success ? api.getTasks(processDataCallback.bind(this)) : console.log("Failed to add task");
+      if (data.success) {
+        api.getTasks()
+          .then( (responseData) => this.setState({title: '', todos: responseData.todos} ))
+          .catch( (error) => console.log('Failed to add task: ', error) );
+      }
     };
 
     api.addTask(newTodo, addTaskCallback.bind(this));
