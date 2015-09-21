@@ -1,3 +1,4 @@
+require('whatwg-fetch');
 var Constants = require("./constants");
 var HEADER = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 

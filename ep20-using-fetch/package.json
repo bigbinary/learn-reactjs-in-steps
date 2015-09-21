@@ -25,6 +25,7 @@
   "dependencies": {
     "jquery": "1.11.3",
     "random-key": "^0.3.2",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "whatwg-fetch": "^0.9.0"
   }
 }
