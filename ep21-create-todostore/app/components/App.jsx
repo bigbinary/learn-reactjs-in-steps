@@ -15,7 +15,7 @@ export default class App extends React.Component {
       .catch( (error) => console.log('Failed to get tasks: ', error) );
   }
 
-  handleDone (idToBeMarkedAsDone) {
+  toggleDone (idToBeMarkedAsDone) {
     var _todos = this.state.todos;
     var todo = _todos.filter((todo) => {
       return todo.id === idToBeMarkedAsDone;
@@ -67,7 +67,7 @@ export default class App extends React.Component {
               </form>
 
               <DisplayList
-                handleDone={this.handleDone.bind(this)}
+                toggleDone={this.toggleDone.bind(this)}
                 handleDelete={this.handleDelete.bind(this)}
                 todos={this.state.todos}  />
 

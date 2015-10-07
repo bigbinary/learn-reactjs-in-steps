@@ -26,8 +26,8 @@ export default class DisplayItem extends React.Component {
     this.setState({ changedText: _changedText });
   }
 
-  handleDone (todoId) {
-    this.props.handleDone(todoId);
+  toggleDone (todoId) {
+    this.props.toggleDone(todoId);
   }
 
   render () {
@@ -46,7 +46,7 @@ export default class DisplayItem extends React.Component {
               <div style={viewStyle} onDoubleClick={this.handleEditing.bind(this)}>
                 <input
                   checked={todo.done}
-                  onChange={this.handleDone.bind(this, todo.id)}
+                  onChange={this.toggleDone.bind(this, todo.id)}
                   type="checkbox"
                   style={{ fontSize: 'x-large' }} />
 
@@ -73,6 +73,6 @@ export default class DisplayItem extends React.Component {
 
 DisplayItem.propTypes = {
   todo: React.PropTypes.object.isRequired,
-  handleDone: React.PropTypes.func.isRequired,
+  toggleDone: React.PropTypes.func.isRequired,
   handleDelete: React.PropTypes.func.isRequired
 }

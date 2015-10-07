@@ -9,7 +9,7 @@ export default class DisplayList extends React.Component {
               return  <section id="main" key={todo.id}>
                         <DisplayItem
                           todo={todo}
-                          handleDone={this.props.handleDone}
+                          toggleDone={this.props.toggleDone}
                           handleDelete={this.props.handleDelete} />
                       </section>
             }) }
@@ -20,6 +20,6 @@ export default class DisplayList extends React.Component {
 
 DisplayList.propTypes = {
   todos: React.PropTypes.array.isRequired,
-  handleDone: React.PropTypes.func.isRequired,
+  toggleDone: React.PropTypes.func.isRequired,
   handleDelete: React.PropTypes.func.isRequired
 }
