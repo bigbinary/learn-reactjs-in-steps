@@ -10,6 +10,10 @@ export default class App extends React.Component {
     super();
     this.state = { title: '', todos:  [] };
 
+    this.getAllTasks();
+  }
+
+  getAllTasks () {
     api.getTasks()
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to get tasks: ', error) );
