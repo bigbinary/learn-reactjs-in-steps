@@ -7,7 +7,7 @@ var api = {
     return Constants.BASE_URL + endpoint + '?api_key=' + Constants.API_KEY;
   },
 
-  getTasks () {
+  getTodos () {
     var url = this.generateUrlWithApiKey('todos');
     return fetch(url)
              .then((res) => res.json());

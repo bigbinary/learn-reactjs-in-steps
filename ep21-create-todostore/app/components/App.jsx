@@ -14,7 +14,7 @@ export default class App extends React.Component {
   }
 
   getAllTasks () {
-    api.getTasks()
+    api.getTodos()
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to get tasks: ', error) );
   }
@@ -32,14 +32,14 @@ export default class App extends React.Component {
 
   markTaskDone (todo) {
     api.markTaskDone(todo)
-      .then( () => { return api.getTasks() })
+      .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to mark task as done/undone: ', error) );
   }
 
   handleDelete (idToBeDeleted) {
     api.deleteTask(idToBeDeleted)
-      .then( () => { return api.getTasks() })
+      .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to delete task: ', error) );
   }
@@ -54,7 +54,7 @@ export default class App extends React.Component {
 
   addTask (newTodo) {
     api.addTask(newTodo)
-      .then( () => { return api.getTasks() })
+      .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({title: '', todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to add task: ', error) );
   }
