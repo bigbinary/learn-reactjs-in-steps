@@ -13,7 +13,7 @@ var api = {
              .then((res) => res.json());
   },
 
-  addTask (todo) {
+  addTodo (todo) {
     var url = this.generateUrlWithApiKey('todos');
     var options = {
       method: 'POST',
@@ -24,7 +24,7 @@ var api = {
              .then((res) => res.json());
   },
 
-  markTaskDone (todo) {
+  markTodoDone (todo) {
     var url = this.generateUrlWithApiKey('todos/' + todo.id);
     var options = {
       method: 'PUT',
@@ -35,7 +35,7 @@ var api = {
              .then((res) => res.json());
   },
 
-  deleteTask (idToBeDeleted, processDataCallback) {
+  deleteTodo (idToBeDeleted, processDataCallback) {
     var url = this.generateUrlWithApiKey('todos/' + idToBeDeleted);
     return fetch(url, { method: 'DELETE' })
       .then((res) => res.json());

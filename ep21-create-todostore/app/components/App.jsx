@@ -10,10 +10,10 @@ export default class App extends React.Component {
     super();
     this.state = { title: '', todos:  [] };
 
-    this.getAllTasks();
+    this.getAllTodos();
   }
 
-  getAllTasks () {
+  getAllTodos () {
     api.getTodos()
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to get tasks: ', error) );
@@ -27,18 +27,18 @@ export default class App extends React.Component {
 
     todo.done = !todo.done;
 
-    this.markTaskDone(todo);
+    this.markTodoDone(todo);
   }
 
-  markTaskDone (todo) {
-    api.markTaskDone(todo)
+  markTodoDone (todo) {
+    api.markTodoDone(todo)
       .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to mark task as done/undone: ', error) );
   }
 
   handleDelete (idToBeDeleted) {
-    api.deleteTask(idToBeDeleted)
+    api.deleteTodo(idToBeDeleted)
       .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to delete task: ', error) );
@@ -49,11 +49,11 @@ export default class App extends React.Component {
 
     var newTodo = { title: this.state.title, done: false };
 
-    this.addTask(newTodo);
+    this.addTodo(newTodo);
   }
 
-  addTask (newTodo) {
-    api.addTask(newTodo)
+  addTodo (newTodo) {
+    api.addTodo(newTodo)
       .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({title: '', todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to add task: ', error) );
