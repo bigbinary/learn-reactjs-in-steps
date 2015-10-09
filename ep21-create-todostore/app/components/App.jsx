@@ -49,6 +49,10 @@ export default class App extends React.Component {
 
     var newTodo = { title: this.state.title, done: false };
 
+    this.addTask(newTodo);
+  }
+
+  addTask (newTodo) {
     api.addTask(newTodo)
       .then( () => { return api.getTasks() })
       .then( (responseData) => this.setState({title: '', todos: responseData.todos} ))
