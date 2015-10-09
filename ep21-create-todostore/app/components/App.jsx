@@ -27,6 +27,10 @@ export default class App extends React.Component {
 
     todo.done = !todo.done;
 
+    this.markTaskDone(todo);
+  }
+
+  markTaskDone (todo) {
     api.markTaskDone(todo)
       .then( () => { return api.getTasks() })
       .then( (responseData) => this.setState({todos: responseData.todos} ))
