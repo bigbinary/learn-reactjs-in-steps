@@ -38,14 +38,14 @@ export default class App extends React.Component {
     api.markTodoDone(todo)
       .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({todos: responseData.todos} ))
-      .catch( (error) => console.log('Failed to mark task as done/undone: ', error) );
+      .catch( (error) => console.log('Failed to mark task as done. ', error) );
   }
 
   markTodoUnDone (todo) {
     api.markTodoUnDone(todo)
       .then( () => { return api.getTodos() })
       .then( (responseData) => this.setState({todos: responseData.todos} ))
-      .catch( (error) => console.log('Failed to mark task as done/undone: ', error) );
+      .catch( (error) => console.log('Failed to mark task as undone. ', error) );
   }
 
 
