@@ -29,7 +29,18 @@ var api = {
     var options = {
       method: 'PUT',
       headers: HEADER,
-      body: JSON.stringify({done: todo.done})
+      body: JSON.stringify({done: true})
+    };
+    return fetch(url, options)
+             .then((res) => res.json());
+  },
+
+  markTodoUnDone (todo) {
+    var url = this.generateUrlWithApiKey('todos/' + todo.id);
+    var options = {
+      method: 'PUT',
+      headers: HEADER,
+      body: JSON.stringify({done: false})
     };
     return fetch(url, options)
              .then((res) => res.json());

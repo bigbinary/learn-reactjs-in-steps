@@ -27,7 +27,11 @@ export default class App extends React.Component {
 
     todo.done = !todo.done;
 
-    this.markTodoDone(todo);
+    if (todo.done) {
+      this.markTodoDone(todo);
+    } else {
+      this.markTodoUnDone(todo);
+    }
   }
 
   markTodoDone (todo) {
@@ -36,6 +40,16 @@ export default class App extends React.Component {
       .then( (responseData) => this.setState({todos: responseData.todos} ))
       .catch( (error) => console.log('Failed to mark task as done/undone: ', error) );
   }
+
+  markTodoUnDone (todo) {
+    api.markTodoUnDone(todo)
+      .then( () => { return api.getTodos() })
+      .then( (responseData) => this.setState({todos: responseData.todos} ))
+      .catch( (error) => console.log('Failed to mark task as done/undone: ', error) );
+  }
+
+
+
 
   handleDelete (idToBeDeleted) {
     api.deleteTodo(idToBeDeleted)
