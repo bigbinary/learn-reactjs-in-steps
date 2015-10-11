@@ -15,8 +15,9 @@ export default class App extends React.Component {
   }
 
   componentDidMount () {
-    var storeIsTellingUsThatDataHasChanged = () => {
+    var storeIsTellingUsThatDataHasChanged = (todos) => {
       console.log("Store is telling us that data has change");
+      this.setState({todos: todos});
     }
     TodoStore.addChangeListener(storeIsTellingUsThatDataHasChanged);
   }

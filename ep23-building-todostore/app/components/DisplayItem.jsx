@@ -36,7 +36,7 @@ export default class DisplayItem extends React.Component {
       TodoActions.markTodoDone(todo);
     }
 
-    this.props.toggleDone(todo.id);
+    //this.props.toggleDone(todo.id);
   }
 
   render () {

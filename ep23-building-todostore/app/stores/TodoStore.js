@@ -6,7 +6,7 @@ var TodoStore = {
   setTodos: (todos) => {
     _todos = todos;
     console.log("TodoStore", TodoStore.getTodos());
-    _callback();
+    _callback(todos);
   },
 
   getTodos: () => {
