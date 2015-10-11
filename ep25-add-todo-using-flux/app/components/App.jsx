@@ -28,12 +28,6 @@ export default class App extends React.Component {
       .then( (responseData) => this.setState({todos: responseData.todos} ))
   }
 
-  markTodoUnDone (todo) {
-    api.markTodoUnDone(todo)
-      .then( () => { return api.getTodos() })
-      .then( (responseData) => this.setState({todos: responseData.todos} ));
-  }
-
   handleSubmit (event) {
     event.preventDefault();
 
