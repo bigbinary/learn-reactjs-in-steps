@@ -9,8 +9,11 @@ var TodoStore = {
 
   getTodos: () => {
     return _todos;
-  }
+  },
 
+  addChangeListener: function (callback) {
+    console.log("registering callback for changelistener");
+  }
 }
 
 module.exports = TodoStore;
