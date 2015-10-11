@@ -35,8 +35,6 @@ export default class DisplayItem extends React.Component {
     } else {
       TodoActions.markTodoDone(todo);
     }
-
-    //this.props.toggleDone(todo.id);
   }
 
   render () {
@@ -82,6 +80,5 @@ export default class DisplayItem extends React.Component {
 
 DisplayItem.propTypes = {
   todo: React.PropTypes.object.isRequired,
-  toggleDone: React.PropTypes.func.isRequired,
   handleDelete: React.PropTypes.func.isRequired
 }

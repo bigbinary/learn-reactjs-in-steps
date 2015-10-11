@@ -27,27 +27,6 @@ export default class App extends React.Component {
       .then( (responseData) => this.setState({todos: responseData.todos} ))
   }
 
-  toggleDone (idToBeMarkedAsDone) {
-    var _todos = this.state.todos;
-    var todo = _todos.filter((todo) => {
-      return todo.id === idToBeMarkedAsDone;
-    })[0];
-
-    todo.done = !todo.done;
-
-    if (todo.done) {
-      this.markTodoDone(todo);
-    } else {
-      this.markTodoUnDone(todo);
-    }
-  }
-
-  markTodoDone (todo) {
-    api.markTodoDone(todo)
-      .then( () => { return api.getTodos() })
-      .then( (responseData) => this.setState({todos: responseData.todos} ));
-  }
-
   markTodoUnDone (todo) {
     api.markTodoUnDone(todo)
       .then( () => { return api.getTodos() })
@@ -94,7 +73,6 @@ export default class App extends React.Component {
               </form>
 
               <DisplayList
-                toggleDone={this.toggleDone.bind(this)}
                 handleDelete={this.handleDelete.bind(this)}
                 todos={this.state.todos}  />
 
