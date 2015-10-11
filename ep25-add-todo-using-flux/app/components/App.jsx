@@ -33,7 +33,6 @@ export default class App extends React.Component {
 
     var newTodo = { title: this.state.title, done: false };
 
-    //this.addTodo(newTodo);
     TodoActions.addTodo(newTodo);
     this.setState({ title: '' });
   }
