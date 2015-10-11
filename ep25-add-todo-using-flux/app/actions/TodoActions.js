@@ -5,6 +5,11 @@ var TodoActions = {
 
   addTodo: (todo) => {
     console.log("adding TODO");
+    api.addTodo(todo)
+       .then( () => {
+         console.log("Added TODO successfully");
+         TodoActions.getAllTodos();
+       })
   },
 
   deleteTodo: (todo) => {
