@@ -3,6 +3,7 @@ import DisplayList from './DisplayList';
 
 var rand = require('random-key');
 var api = require("../utils/api");
+var TodoStore = require("../stores/TodoStore");
 
 export default class App extends React.Component {
 
@@ -11,6 +12,13 @@ export default class App extends React.Component {
     this.state = { title: '', todos:  [] };
 
     this.getAllTodos();
+  }
+
+  componentDidMount () {
+    var storeIsTellingUsThatDataHasChanged = () => {
+      console.log("Store is telling us that data has change");
+    }
+    TodoStore.addChangeListener(storeIsTellingUsThatDataHasChanged);
   }
 
   getAllTodos () {
