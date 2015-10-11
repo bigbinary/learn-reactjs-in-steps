@@ -22,7 +22,7 @@ var api = {
     var url = Constants.BASE_URL + 'todos/' + idToBeDeleted;
     this.makeAjaxCall(url, 'DELETE', {}, processDataCallback)
   },
-  
+
   makeAjaxCall (url, type, params, processDataCallback) {
     $.ajax({
       type: type,
