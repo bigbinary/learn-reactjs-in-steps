@@ -10,7 +10,8 @@ var api = {
   getTodos () {
     var url = this.generateUrlWithApiKey('todos');
     return fetch(url)
-             .then((res) => res.json());
+             .then((res) => res.json())
+             .catch( (error) => console.log('Failed to get all tasks list.', error) );
   },
 
   addTodo (todo) {
@@ -22,6 +23,7 @@ var api = {
     };
     return fetch(url, options)
              .then((res) => res.json());
+             .catch( (error) => console.log('Failed to add a TODO.', error) );
   },
 
   markTodoDone (todo) {
@@ -32,7 +34,8 @@ var api = {
       body: JSON.stringify({done: true})
     };
     return fetch(url, options)
-             .then((res) => res.json());
+             .then((res) => res.json())
+             .catch( (error) => console.log('Failed to mark task as done. ', error) );
   },
 
   markTodoUnDone (todo) {
@@ -43,13 +46,15 @@ var api = {
       body: JSON.stringify({done: false})
     };
     return fetch(url, options)
-             .then((res) => res.json());
+             .then((res) => res.json())
+             .catch( (error) => console.log('Failed to mark task as undone. ', error) );
   },
 
   deleteTodo (idToBeDeleted, processDataCallback) {
     var url = this.generateUrlWithApiKey('todos/' + idToBeDeleted);
     return fetch(url, { method: 'DELETE' })
-      .then((res) => res.json());
+            .then((res) => res.json())
+            .catch( (error) => console.log('Failed to delete TODO.', error) );
   },
 
 };
