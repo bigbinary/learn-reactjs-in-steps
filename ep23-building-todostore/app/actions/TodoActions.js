@@ -1,4 +1,5 @@
 var api = require("../utils/api");
+var TodoStore = require("../stores/TodoStore");
 
 var TodoActions = {
 
@@ -25,6 +26,7 @@ var TodoActions = {
        .then( (responseData) => {
          var todos = responseData.todos;
          console.log("new todos", todos);
+         TodoStore.setTodos(todos);
        })
   }
 
