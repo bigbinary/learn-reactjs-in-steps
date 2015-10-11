@@ -3,6 +3,10 @@ var TodoStore = require("../stores/TodoStore");
 
 var TodoActions = {
 
+  deleteTodo: (todo) => {
+    console.log("Deleting TODO");
+  },
+
   markTodoDone: (todo) => {
     console.log("Marking TODO as done");
     api.markTodoDone(todo)
