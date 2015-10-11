@@ -1,5 +1,7 @@
 import React from 'react';
 
+var TodoActions = require('../actions/TodoActions');
+
 export default class DisplayItem extends React.Component {
 
   constructor () {
@@ -27,6 +29,13 @@ export default class DisplayItem extends React.Component {
   }
 
   toggleDone (todo) {
+
+    if (todo.done) {
+      TodoActions.markTodoUnDone(todo);
+    } else {
+      TodoActions.markTodoDone(todo);
+    }
+
     this.props.toggleDone(todo.id);
   }
 
