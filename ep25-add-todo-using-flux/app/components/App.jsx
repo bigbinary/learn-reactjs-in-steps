@@ -4,6 +4,7 @@ import DisplayList from './DisplayList';
 var rand = require('random-key');
 var api = require("../utils/api");
 var TodoStore = require("../stores/TodoStore");
+var TodoActions = require("../actions/TodoActions");
 
 export default class App extends React.Component {
 
@@ -39,6 +40,7 @@ export default class App extends React.Component {
     var newTodo = { title: this.state.title, done: false };
 
     this.addTodo(newTodo);
+    TodoActions.addTodo(newTodo);
   }
 
   addTodo (newTodo) {
