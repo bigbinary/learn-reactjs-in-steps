@@ -3,6 +3,10 @@ var TodoStore = require("../stores/TodoStore");
 
 var TodoActions = {
 
+  addTodo: (todo) => {
+    console.log("adding TODO");
+  },
+
   deleteTodo: (todo) => {
     console.log("Deleting TODO");
     api.deleteTodo(todo.id)
