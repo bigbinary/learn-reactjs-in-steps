@@ -29,12 +29,15 @@ export default class DisplayItem extends React.Component {
   }
 
   toggleDone (todo) {
-
     if (todo.done) {
       TodoActions.markTodoUnDone(todo);
     } else {
       TodoActions.markTodoDone(todo);
     }
+  }
+
+  handleDeleteTodoClick (todo) {
+    this.props.handleDelete(todo.id);
   }
 
   render () {
@@ -63,7 +66,7 @@ export default class DisplayItem extends React.Component {
 
                 <a  href='#'
                     className="destroy"
-                    onClick={ this.props.handleDelete.bind(null, todo.id) }>
+                    onClick={ this.handleDeleteTodoClick.bind(this, todo) }>
                   [x]
                 </a>
               </div>
