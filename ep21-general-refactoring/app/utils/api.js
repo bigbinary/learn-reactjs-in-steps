@@ -22,7 +22,7 @@ var api = {
       body: JSON.stringify({todo: todo})
     };
     return fetch(url, options)
-             .then((res) => res.json());
+             .then((res) => res.json())
              .catch( (error) => console.log('Failed to add a TODO.', error) );
   },
 
