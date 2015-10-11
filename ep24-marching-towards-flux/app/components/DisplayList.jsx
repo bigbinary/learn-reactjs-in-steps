@@ -8,8 +8,7 @@ export default class DisplayList extends React.Component {
             { this.props.todos.map((todo, i) => {
               return  <section id="main" key={todo.id}>
                         <DisplayItem
-                          todo={todo}
-                          handleDelete={this.props.handleDelete} />
+                          todo={todo} />
                       </section>
             }) }
            </ul>
@@ -18,6 +17,5 @@ export default class DisplayList extends React.Component {
 }
 
 DisplayList.propTypes = {
-  todos: React.PropTypes.array.isRequired,
-  handleDelete: React.PropTypes.func.isRequired
+  todos: React.PropTypes.array.isRequired
 }

@@ -38,7 +38,6 @@ export default class DisplayItem extends React.Component {
 
   handleDeleteTodoClick (todo) {
     TodoActions.deleteTodo(todo);
-    //this.props.handleDelete(todo.id);
   }
 
   render () {
@@ -83,6 +82,5 @@ export default class DisplayItem extends React.Component {
 }
 
 DisplayItem.propTypes = {
-  todo: React.PropTypes.object.isRequired,
-  handleDelete: React.PropTypes.func.isRequired
+  todo: React.PropTypes.object.isRequired
 }

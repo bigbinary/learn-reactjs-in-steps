@@ -33,12 +33,6 @@ export default class App extends React.Component {
       .then( (responseData) => this.setState({todos: responseData.todos} ));
   }
 
-  handleDelete (idToBeDeleted) {
-    api.deleteTodo(idToBeDeleted)
-      .then( () => { return api.getTodos() })
-      .then( (responseData) => this.setState({todos: responseData.todos} ));
-  }
-
   handleSubmit (event) {
     event.preventDefault();
 
@@ -73,7 +67,6 @@ export default class App extends React.Component {
               </form>
 
               <DisplayList
-                handleDelete={this.handleDelete.bind(this)}
                 todos={this.state.todos}  />
 
               <footer>
