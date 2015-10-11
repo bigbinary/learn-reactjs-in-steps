@@ -44,12 +44,6 @@ export default class App extends React.Component {
     this.setState({ title: '' });
   }
 
-  addTodo (newTodo) {
-    api.addTodo(newTodo)
-      .then( () => { return api.getTodos() })
-      .then( (responseData) => this.setState({title: '', todos: responseData.todos} ));
-  }
-
   handleChange (event) {
     var title = event.target.value;
     this.setState({ title: title });
