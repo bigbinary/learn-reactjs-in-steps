@@ -8,7 +8,7 @@ var TodoActions = {
     api.addTodo(todo)
        .then( () => {
          console.log("Added TODO successfully");
-         TodoActions.getAllTodos();
+         TodoActions.getAllTodosAndUpdateStore();
        })
   },
 
@@ -39,7 +39,7 @@ var TodoActions = {
        })
   },
 
-  getAllTodos: () => {
+  getAllTodosAndUpdateStore: () => {
     console.log("Performing getAllTodos");
     api.getTodos()
        .then( (responseData) => {
