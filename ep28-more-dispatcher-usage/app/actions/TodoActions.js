@@ -27,7 +27,6 @@ var TodoActions = {
     api.markTodoDone(todo)
        .then( () => {
          console.log("marked TODO as done successfully");
-         //TodoStore.markTodoDone(todo);
          AppDispatcher.dispatch({
           actionType: 'TODO_DONE',
           todo: todo
