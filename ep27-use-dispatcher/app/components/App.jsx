@@ -3,7 +3,6 @@ import DisplayList from './DisplayList';
 
 var rand = require('random-key');
 var api = require("../utils/api");
-var TodoStore = require("../stores/TodoStore");
 var TodoActions = require("../actions/TodoActions");
 var TodoStore = require("../stores/TodoStore");
 
