@@ -3,6 +3,14 @@ var _callback;
 
 var TodoStore = {
 
+  deleteTodo: (todo) => {
+    var newTodos = _todos.filter( (t) => {
+      return t.id != todo.id
+    } )
+    _todos = newTodos;
+    _callback(_todos);
+  },
+
   markTodoDone: (todo) => {
    var _todo = _todos.filter((t) => {
       return t.id === todo.id;

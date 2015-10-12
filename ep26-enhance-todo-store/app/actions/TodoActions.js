@@ -17,7 +17,7 @@ var TodoActions = {
     api.deleteTodo(todo.id)
        .then( () => {
          console.log("Deleted TODO successfully");
-         TodoActions.getAllTodos();
+         TodoStore.deleteTodo(todo);
        })
   },
 
