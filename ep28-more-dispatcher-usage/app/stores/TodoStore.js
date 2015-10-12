@@ -7,6 +7,11 @@ AppDispatcher.register(function(action) {
       console.log("Handling TODO_DONE using dispatcher in store");
       TodoStore.markTodoDone(action.todo);
       break;
+
+    case 'TODO_UNDONE':
+      console.log("Handling TODO_DONE using dispatcher in store");
+      TodoStore.markTodoUnDone(action.todo);
+      break;
   }
 
 });
