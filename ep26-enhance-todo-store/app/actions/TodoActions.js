@@ -26,7 +26,7 @@ var TodoActions = {
     api.markTodoDone(todo)
        .then( () => {
          console.log("marked TODO as done successfully");
-         TodoActions.getAllTodos();
+         TodoStore.markTodoDone(todo);
        })
   },
 
@@ -40,6 +40,7 @@ var TodoActions = {
   },
 
   getAllTodos: () => {
+    console.log("Performing getAllTodos");
     api.getTodos()
        .then( (responseData) => {
          var todos = responseData.todos;
