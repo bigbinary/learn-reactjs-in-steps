@@ -5,6 +5,7 @@ var rand = require('random-key');
 var api = require("../utils/api");
 var TodoStore = require("../stores/TodoStore");
 var TodoActions = require("../actions/TodoActions");
+var TodoStore = require("../stores/TodoStore");
 
 export default class App extends React.Component {
 
@@ -25,7 +26,11 @@ export default class App extends React.Component {
 
   getAllTodos () {
     api.getTodos()
-      .then( (responseData) => this.setState({todos: responseData.todos} ))
+      .then( (responseData) => {
+        var todos = responseData.todos;
+        this.setState({todos: todos });
+        TodoStore.setTodos(todos);
+      })
   }
 
   handleSubmit (event) {
