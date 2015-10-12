@@ -1,21 +1,22 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
+var Constants = require("../utils/constants");
 
 AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
-    case 'TODO_DONE':
+    case Constants.TODO_DONE:
       TodoStore.markTodoDone(action.todo);
       break;
 
-    case 'TODO_UNDONE':
+    case Constants.TODO_UNDONE:
       TodoStore.markTodoUnDone(action.todo);
       break;
 
-    case 'TODO_DELETE':
+    case Constants.TODO_DELETE:
       TodoStore.deleteTodo(action.todo);
       break;
 
-    case 'TODO_ADD':
+    case Constants.TODO_ADD:
       TodoStore.getTodos();
       break;
   }
