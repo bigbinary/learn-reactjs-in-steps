@@ -23,6 +23,7 @@
     "webpack-merge": "^0.1.2"
   },
   "dependencies": {
+    "flux": "^2.1.1",
     "jquery": "1.11.3",
     "random-key": "^0.3.2",
     "react": "^0.13.3",
