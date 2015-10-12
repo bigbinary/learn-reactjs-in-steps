@@ -1,3 +1,15 @@
+var AppDispatcher = require('../dispatcher/AppDispatcher');
+
+AppDispatcher.register(function(action) {
+
+  switch(action.actionType) {
+    case 'TODO_DONE':
+      console.log("Handling TODO_DONE using dispatcher in store");
+      break;
+  }
+
+});
+
 var _todos = {};
 var _callback;
 

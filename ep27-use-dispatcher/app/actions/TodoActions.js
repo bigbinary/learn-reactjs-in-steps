@@ -1,5 +1,6 @@
 var api = require("../utils/api");
 var TodoStore = require("../stores/TodoStore");
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 
 var TodoActions = {
 
@@ -26,7 +27,12 @@ var TodoActions = {
     api.markTodoDone(todo)
        .then( () => {
          console.log("marked TODO as done successfully");
-         TodoStore.markTodoDone(todo);
+         //TodoStore.markTodoDone(todo);
+         AppDispatcher.dispatch({
+          actionType: 'TODO_DONE',
+          todo: todo
+        });
+
        })
   },
 
