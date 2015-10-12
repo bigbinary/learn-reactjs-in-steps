@@ -35,7 +35,7 @@ var TodoActions = {
     api.markTodoUnDone(todo)
        .then( () => {
          console.log("marked TODO as undone successfully");
-         TodoActions.getAllTodos();
+         TodoStore.markTodoUnDone(todo);
        })
   },
 

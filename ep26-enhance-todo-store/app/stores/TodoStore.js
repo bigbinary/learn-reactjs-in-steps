@@ -12,6 +12,15 @@ var TodoStore = {
     _callback(_todos);
   },
 
+  markTodoUnDone: (todo) => {
+   var _todo = _todos.filter((t) => {
+      return t.id === todo.id;
+    })[0];
+
+    _todo.done = false;
+    _callback(_todos);
+  },
+
   setTodos: (todos) => {
     _todos = todos;
     console.log("TodoStore", TodoStore.getTodos());
