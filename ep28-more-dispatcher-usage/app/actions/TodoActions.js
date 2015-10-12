@@ -18,7 +18,10 @@ var TodoActions = {
     api.deleteTodo(todo.id)
        .then( () => {
          console.log("Deleted TODO successfully");
-         TodoStore.deleteTodo(todo);
+         AppDispatcher.dispatch({
+          actionType: 'TODO_DELETE',
+          todo: todo
+        });
        })
   },
 
