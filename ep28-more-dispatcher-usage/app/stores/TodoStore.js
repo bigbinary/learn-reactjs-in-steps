@@ -17,6 +17,11 @@ AppDispatcher.register(function(action) {
       console.log("Handling TODO_DELETE using dispatcher in store");
       TodoStore.deleteTodo(action.todo);
       break;
+
+    case 'TODO_ADD':
+      console.log("Handling TODO_ADD using dispatcher in store");
+      TodoStore.getTodos();
+      break;
   }
 
 });
@@ -60,6 +65,7 @@ var TodoStore = {
 
   getTodos: () => {
     return _todos;
+    _callback(todos);
   },
 
   addChangeListener: function (callback) {

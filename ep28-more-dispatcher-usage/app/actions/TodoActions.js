@@ -57,6 +57,9 @@ var TodoActions = {
          var todos = responseData.todos;
          console.log("new todos", todos);
          TodoStore.setTodos(todos);
+         AppDispatcher.dispatch({
+          actionType: 'TODO_ADD'
+        });
        })
   }
 
