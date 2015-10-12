@@ -4,22 +4,18 @@ AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
     case 'TODO_DONE':
-      console.log("Handling TODO_DONE using dispatcher in store");
       TodoStore.markTodoDone(action.todo);
       break;
 
     case 'TODO_UNDONE':
-      console.log("Handling TODO_UNDONE using dispatcher in store");
       TodoStore.markTodoUnDone(action.todo);
       break;
 
     case 'TODO_DELETE':
-      console.log("Handling TODO_DELETE using dispatcher in store");
       TodoStore.deleteTodo(action.todo);
       break;
 
     case 'TODO_ADD':
-      console.log("Handling TODO_ADD using dispatcher in store");
       TodoStore.getTodos();
       break;
   }
