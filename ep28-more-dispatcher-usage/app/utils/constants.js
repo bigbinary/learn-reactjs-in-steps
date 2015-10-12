@@ -6,4 +6,5 @@ var Constants = {
   TODO_DELETE: 'TODO_DELETE',
   TODO_ADD: 'TODO_ADD'
 };
+
 module.exports = Constants;
