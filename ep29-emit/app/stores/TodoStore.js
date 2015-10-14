@@ -68,6 +68,10 @@ var TodoStore = {
     _callback(todos);
   },
 
+  emitChange: function() {
+    this.emit(CHANGE_EVENT);
+  },
+
   addChangeListener: function (callback) {
     console.log("registering callback for changelistener");
     this.on(CHANGE_EVENT, callback);
