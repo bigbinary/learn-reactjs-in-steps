@@ -27,7 +27,7 @@ AppDispatcher.register(function(action) {
 });
 
 var _todos = {};
-var _callback;
+var CHANGE_EVENT = 'change';
 
 var TodoStore = {
 
@@ -70,7 +70,7 @@ var TodoStore = {
 
   addChangeListener: function (callback) {
     console.log("registering callback for changelistener");
-    _callback = callback;
+    this.on(CHANGE_EVENT, callback);
   }
 }
 
