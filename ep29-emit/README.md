@@ -9,5 +9,5 @@ Visit http://localhost:8080 in browser.
 
 #### Notes
 
-* `npm install random-key --save`
+* [Nodejs Events](https://nodejs.org/api/events.html)
 * [Source code](...)
