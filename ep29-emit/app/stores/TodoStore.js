@@ -30,7 +30,7 @@ AppDispatcher.register(function(action) {
 var _todos = {};
 var CHANGE_EVENT = 'change';
 
-var TodoStore = {
+var TodoStore = assign({}, EventEmitter.prototype, {
 
   deleteTodo: (todo) => {
     var newTodos = _todos.filter( (t) => {
