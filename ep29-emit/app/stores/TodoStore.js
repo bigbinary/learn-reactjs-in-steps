@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
+var assign = require('object-assign');
 
 AppDispatcher.register(function(action) {
 
@@ -77,6 +78,6 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     console.log("registering callback for changelistener");
     this.on(CHANGE_EVENT, callback);
   }
-}
+})
 
 module.exports = TodoStore;
