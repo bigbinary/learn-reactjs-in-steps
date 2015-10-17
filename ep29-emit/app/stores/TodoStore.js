@@ -38,7 +38,6 @@ var TodoStore = assign({}, EventEmitter.prototype, {
       return t.id != todo.id
     } )
     _todos = newTodos;
-    _callback(_todos);
   },
 
   markTodoDone: (todo) => {
@@ -47,7 +46,6 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     })[0];
 
     _todo.done = true;
-    _callback(_todos);
   },
 
   markTodoUnDone: (todo) => {
@@ -56,18 +54,15 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     })[0];
 
     _todo.done = false;
-    _callback(_todos);
   },
 
   setTodos: (todos) => {
     _todos = todos;
     console.log("TodoStore", TodoStore.getTodos());
-    _callback(todos);
   },
 
   getTodos: () => {
     return _todos;
-    _callback(todos);
   },
 
   emitChange: function() {
