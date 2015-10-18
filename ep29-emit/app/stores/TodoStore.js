@@ -61,7 +61,7 @@ var TodoStore = assign({}, EventEmitter.prototype, {
 
   setTodos: (todos) => {
     _todos = todos;
-    console.log("TodoStore", TodoStore.getTodos());
+    TodoStore.emitChange();
   },
 
   getTodos: () => {
