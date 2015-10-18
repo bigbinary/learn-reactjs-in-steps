@@ -46,6 +46,7 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     })[0];
 
     _todo.done = true;
+    TodoStore.emitChange();
   },
 
   markTodoUnDone: (todo) => {
@@ -54,6 +55,7 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     })[0];
 
     _todo.done = false;
+    TodoStore.emitChange();
   },
 
   setTodos: (todos) => {
