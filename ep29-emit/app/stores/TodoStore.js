@@ -38,6 +38,7 @@ var TodoStore = assign({}, EventEmitter.prototype, {
       return t.id != todo.id
     } )
     _todos = newTodos;
+    TodoStore.emitChange();
   },
 
   markTodoDone: (todo) => {
