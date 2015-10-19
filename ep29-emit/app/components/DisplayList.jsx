@@ -10,8 +10,7 @@ export default class DisplayList extends React.Component {
                         <DisplayItem
                           todo={todo} />
                       </section>
-              })
-            }
+            }) }
            </ul>
   }
 
