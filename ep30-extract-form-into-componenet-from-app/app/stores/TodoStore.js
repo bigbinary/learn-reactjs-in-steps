@@ -24,6 +24,11 @@ AppDispatcher.register(function(action) {
       console.log("Handling TODO_ADD using dispatcher in store");
       TodoStore.getTodos();
       break;
+
+    case 'TODO_ALL':
+      console.log("Handling TODO_ALL using dispatcher in store");
+      TodoStore.setTodos(action.todos);
+      break;
   }
 
 });

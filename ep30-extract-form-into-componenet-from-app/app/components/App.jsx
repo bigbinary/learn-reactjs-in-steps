@@ -28,12 +28,7 @@ export default class App extends React.Component {
   }
 
   getAllTodos () {
-    api.getTodos()
-      .then( (responseData) => {
-        var todos = responseData.todos;
-        this.setState({todos: todos });
-        TodoStore.setTodos(todos);
-      })
+    TodoActions.allTodos();
   }
 
   handleClearCompleted (event) {

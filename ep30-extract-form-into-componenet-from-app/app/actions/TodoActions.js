@@ -4,16 +4,22 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 
 var TodoActions = {
 
+  allTodos: () => {
+    api.getTodos()
+       .then( (responseData) => {
+         console.log("Got All TODOs successfully");
+         AppDispatcher.dispatch({
+          actionType: 'TODO_ALL',
+          todos: todos
+        });
+       })
+  },
+
   addTodo: (todo) => {
     console.log("adding TODO");
     api.addTodo(todo)
        .then( () => {
-          api.getTodos()
-             .then( (responseData) => {
-               var todos = responseData.todos;
-               console.log("All todos", todos);
-               TodoStore.setTodos(todos);
-             })
+         allTodos();
        })
        .then( () => {
          console.log("Added TODO successfully");
