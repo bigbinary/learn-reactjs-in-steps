@@ -13,22 +13,17 @@ export default class App extends React.Component {
     super();
     this.state = { title: '', todos:  [] };
 
-    this.getAllTodos();
+    TodoActions.allTodos();
   }
 
   componentDidMount () {
     var storeIsTellingUsThatDataHasChanged = () => {
       console.log("Store is telling us that data has change");
       var todos = TodoStore.getTodos();
-      console.log("todos is");
-      console.log(todos);
+      console.log("todos :", todos);
       this.setState({todos: todos});
     }
     TodoStore.addChangeListener(storeIsTellingUsThatDataHasChanged);
-  }
-
-  getAllTodos () {
-    TodoActions.allTodos();
   }
 
   handleClearCompleted (event) {
