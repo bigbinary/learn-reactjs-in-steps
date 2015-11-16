@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoForm from './TodoForm';
 import DisplayList from './DisplayList';
 
 var rand = require('random-key');
@@ -35,43 +36,22 @@ export default class App extends React.Component {
       })
   }
 
-  handleSubmit (event) {
-    event.preventDefault();
-
-    var newTodo = { title: this.state.title, done: false };
-
-    TodoActions.addTodo(newTodo);
-    this.setState({ title: '' });
-  }
-
-  handleChange (event) {
-    var title = event.target.value;
-    this.setState({ title: title });
-  }
-
   handleClearCompleted (event) {
     var newTodos = this.state.todos.filter((todo) => { return !todo.done});
     this.setState({ todos: newTodos });
   }
 
   render () {
-    return  <div>
-              <h1> TODO </h1>
-              <form onSubmit={this.handleSubmit.bind(this)}>
-                <input  type="text"
-                        onChange={this.handleChange.bind(this)}
-                        value={this.state.title} />
-              </form>
-
-              <DisplayList
+    return <div>
+            <TodoForm />
+            <DisplayList
                 todos={this.state.todos}  />
-
-              <footer>
-                All: ({ this.state.todos.length }) |
-                Completed: ({ this.state.todos.filter((todo) => { return todo.done }).length }) |
-                Pending: ({ this.state.todos.filter((todo) => { return !todo.done }).length }) |
-                <a href='#' onClick={this.handleClearCompleted.bind(this)}>Clear Completed</a>
-              </footer>
-            </div>;
+            <footer>
+              All: ({ this.state.todos.length }) |
+              Completed: ({ this.state.todos.filter((todo) => { return todo.done }).length }) |
+              Pending: ({ this.state.todos.filter((todo) => { return !todo.done }).length }) |
+              <a href='#' onClick={this.handleClearCompleted.bind(this)}>Clear Completed</a>
+            </footer>
+          </div>
   }
 }
