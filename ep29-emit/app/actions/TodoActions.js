@@ -8,8 +8,18 @@ var TodoActions = {
     console.log("adding TODO");
     api.addTodo(todo)
        .then( () => {
+          api.getTodos()
+             .then( (responseData) => {
+               var todos = responseData.todos;
+               console.log("All todos", todos);
+               TodoStore.setTodos(todos);
+             })
+       })
+       .then( () => {
          console.log("Added TODO successfully");
-         TodoActions.getAllTodosAndUpdateStore();
+         AppDispatcher.dispatch({
+          actionType: 'TODO_ADD'
+         });
        })
   },
 
@@ -50,18 +60,8 @@ var TodoActions = {
        })
   },
 
-  getAllTodosAndUpdateStore: () => {
-    console.log("Performing getAllTodos");
-    api.getTodos()
-       .then( (responseData) => {
-         var todos = responseData.todos;
-         console.log("new todos", todos);
-         TodoStore.setTodos(todos);
-         AppDispatcher.dispatch({
-          actionType: 'TODO_ADD'
-        });
-       })
-  }
+
+
 
 }
 
