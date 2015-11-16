@@ -60,9 +60,6 @@ var TodoActions = {
        })
   },
 
-
-
-
 }
 
 module.exports = TodoActions;
