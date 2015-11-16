@@ -9,5 +9,4 @@ Visit http://localhost:8080 in browser.
 
 #### Notes
 
-* `npm install random-key --save`
-* [Source code](...)
+* `npm install fetch --save`
